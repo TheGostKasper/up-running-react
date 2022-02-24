@@ -12,6 +12,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Fetch one User => "https://randomuser.me/api/"
 
 
+# using freetogame public API to list and diplay 
+[It might cause a core error] =>  use cores changer ext for chroume to solve this issue 
 - List Games => "https://www.freetogame.com/api/games"
 - Fetch oneGame and display its data => "https://www.freetogame.com/api/game?id=''"
 
