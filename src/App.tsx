@@ -1,25 +1,66 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import GameDetails from "./components/Games/GameDetails";
+import GameWrapper from "./components/Games/GameWrapper";
+
+import Header from "./components/Header";
+import UserList from "./components/Users/User-list";
+import UserDetails from "./components/Users/UserDetails";
+
+const routes = [
+  {
+    path: "",
+    element: (
+      <main>
+        <p>Home page</p>
+      </main>
+    ),
+  },
+  {
+    path: "home",
+    element: (
+      <main>
+        <p>Home page</p>
+      </main>
+    ),
+  },
+  {
+    path: "users",
+    element: <UserList />,
+  },
+  {
+    path: `users/:id`,
+    element: <UserDetails />,
+  },
+  {
+    path: "games",
+    element: <GameWrapper />,
+  },
+  {
+    path: `games/:id`,
+    element: <GameDetails />,
+  },
+  {
+    path: "*",
+    element: (
+      <main style={{ padding: "1rem" }}>
+        <p>There's nothing here!</p>
+      </main>
+    ),
+  },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header title="Users"></Header>
+      <div className="container mt-4">
+        <Routes>
+          {routes.map((route, i) => (
+            <Route key={i} {...route} />
+          ))}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

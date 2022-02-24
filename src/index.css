@@ -1,13 +1,209 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: monospace;
+}
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.form-control label {
+  margin-bottom: 4px;
+}
+.form-control input {
+  padding: 8px;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+.w-100 {
+  width: 100%;
+}
+.form-checkbox {
+  margin-bottom: 8px;
+}
+.f-colm {
+  display: flex;
+  flex-direction: column;
+}
+.f-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-space_between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.w-md {
+  width: 300px;
+}
+.mt-medium {
+  margin-top: 1.5rem;
+}
+.btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+.btn-block {
+  width: 100%;
+  background-color: black;
+}
+.add-btn {
+  margin: 8px 0;
+}
+button:disabled {
+  background-color: rgb(110, 106, 106);
+  color: black;
+  cursor: not-allowed;
+}
+.btn:focus {
+  outline: none;
+}
+.task {
+  background-color: lightgray;
+  padding: 4px;
+  border-radius: 0 4px 4px 0;
+  margin: 4px 0px;
+}
+
+.ml-medium {
+  margin-left: 8px;
+}
+
+.delete-icon {
+  color: rgb(228 76 76);
+  margin-right: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.pointer {
+  cursor: pointer;
+}
+
+.g-reminder {
+  border-left: 4px solid lightseagreen;
+}
+
+.r-reminder {
+  border-left: 4px solid rgb(228 76 76);
+}
+.u-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
+}
+
+.game-image {
+  width: 100%;
+}
+
+/* Games */
+.g-card {
+  background: #1b1818;
+  padding: 8px;
+  border-radius: 4px;
+  gap: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.g-card h4 {
+  padding-bottom: 0.5rem;
+  background-color: #b0cec1;
+  color: black;
+  text-align: center;
+  border-radius: 4px;
+}
+.chip {
+  font-size: 12px;
+  background: #b63d3d;
+  padding: 4px;
+  border-radius: 4px;
+  color: white;
+}
+.g-description {
+  font-size: 10px;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: break-spaces;
+  max-height: 30px;
+}
+
+.gap-8 {
+  gap: 8px;
+}
+.slides-container {
+  display: flex;
+  overflow: auto;
+  flex: none;
+  width: 100%;
+  flex-flow: row nowrap;
+}
+
+/* scroll-snap */
+.x.mandatory-scroll-snapping {
+  scroll-snap-type: x mandatory;
+}
+
+.slide {
+  width: 100%;
+}
+/* Users */
+
+img.card-img {
+  width: 150px;
+}
+.p-small {
+  padding: 4px;
+}
+.p-medium {
+  padding: 12px;
+}
+.avatar {
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.user-container {
+  background-color: lightgray;
+  padding: 4px;
+  border-radius: 0 4px 4px 0;
+  margin: 8px 0px;
+}
+
+.u-header {
+  font-size: 16px;
+  margin: 0px;
+}
+.u-caption {
+  font-size: 14px;
+}
+
+@media (max-width: 1200px) {
+  .u-grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .u-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .u-grid-4 {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
