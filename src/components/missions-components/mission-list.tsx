@@ -11,6 +11,8 @@ import UseScrollLoader from "../shared-components/scroll-loader";
 import { useLangContext } from "../shared-components/lang-context";
 import { Utilis } from "../../shared-services/utilis";
 
+import { Helmet } from "react-helmet";
+
 const missionType = {
   facebookMission: "FBPostMission",
   igMission: "IGStoryMission",
@@ -40,6 +42,15 @@ const MissionList = ({
 
   return (
     <div className="mx-card">
+      <Helmet>
+        <meta property="og:title" content="Basty" />
+        <meta property="og:description" content="Come to BABA." />
+        <meta
+          property="og:image"
+          content="https://storage.googleapis.com/bb-media-prd/api.brandbassador.com/images/e5bb6993-07a9-4a0d-a567-d191821f6e62.jpg"
+        />
+      </Helmet>
+
       {!!feed.length &&
         feed.map((gMission: IGroupedMission, indx) => (
           <div key={indx} className="mt-4">
