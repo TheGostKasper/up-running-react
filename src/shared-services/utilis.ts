@@ -1,5 +1,7 @@
-import { IMission, IGroupedMission } from "../components/missions-components/modals/mission-modal";
-
+import {
+  IMission,
+  IGroupedMission,
+} from "../components/missions-components/modals/mission-modal";
 
 export class Utilis {
   static getDateFormate(date: string): string {
@@ -52,6 +54,7 @@ export class Utilis {
     };
 
     if (!!mission) {
+      document.title = mission.title;
       changeMeta("title", mission.title);
       changeMeta("image", mission.image?.src || "");
       changeMeta("video", mission.video?.src || "");
