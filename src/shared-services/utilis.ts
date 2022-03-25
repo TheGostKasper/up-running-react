@@ -43,21 +43,20 @@ export class Utilis {
     return groupedItems;
   };
 
+  static changeMeta = (prop: string, value: string) => {
+    document
+      .querySelector(`meta[property="og:${prop}"]`)
+      ?.setAttribute("content", value);
+    document
+      .querySelector(`meta[property="twitter:${prop}"]`)
+      ?.setAttribute("content", value);
+  };
   static updateMetaTags(mission: IMission | undefined) {
-    const changeMeta = (prop: string, value: string) => {
-      document
-        .querySelector(`meta[property="og:${prop}"]`)
-        ?.setAttribute("content", value);
-      document
-        .querySelector(`meta[property="twitter:${prop}"]`)
-        ?.setAttribute("content", value);
-    };
-
     if (!!mission) {
       document.title = mission.title;
-      changeMeta("title", mission.title);
-      changeMeta("image", mission.image?.src || "");
-      changeMeta("video", mission.video?.src || "");
+     this.changeMeta("title", mission.title);
+     this.changeMeta("image", mission.image?.src || "");
+     this.changeMeta("video", mission.video?.src || "");
     }
   }
 }

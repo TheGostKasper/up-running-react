@@ -28,7 +28,7 @@ const MissionList = ({
   const lastElementRef = UseScrollLoader({ hasNext, onNextPageChange });
 
   useEffect(() => {
-    document.title = "mission.title";
+    Utilis.changeMeta("title", "Basty");
     if (!!items && items.length > 0) {
       setFeed((prevFeed) => [
         ...prevFeed,
