@@ -1,6 +1,3 @@
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-
-// To be removed
 export interface IPayload {
   page: number;
   limit: number;
