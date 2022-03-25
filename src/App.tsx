@@ -65,6 +65,7 @@ function App() {
   };
   return (
     <Router>
+      <Header title="Users"></Header>
       <LangContextProvider lang={lang}>
         <div className="container mission-wrapper ">
           <div className="d-flex mt-5  w-100">

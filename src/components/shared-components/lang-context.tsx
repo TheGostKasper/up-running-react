@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useContext } from "react";
-import { Translate } from "../shared-services/translate";
+import { Translate } from "../../shared-services/translate";
 
 
 const LangContext = createContext<any>(Translate.resources["en"]);

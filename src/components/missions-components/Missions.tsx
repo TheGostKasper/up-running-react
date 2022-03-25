@@ -1,8 +1,8 @@
 import { useState } from "react";
 import LoadingError from "../shared-components/loading-error";
-import { GQLQueries } from "../shared-services/gqlQueries";
 import { IFeesReponse } from "./modals/mission-modal";
 import MissionList from "./mission-list";
+import { GQLQueries } from "../../shared-services/gqlQueries";
 
 const Missions: React.FC<any> = () => {
   const [variable, setVariable] = useState({ limit: 4, offset: 1 });

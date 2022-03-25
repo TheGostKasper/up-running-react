@@ -27,6 +27,11 @@ const Header = ({ title }: IHeader) => {
         id="navbarSupportedContent"
       >
         <ul className="navbar-nav mr-auto">
+        <li className="nav-item active">
+            <Link to="/missions" className="nav-link">
+              missions
+            </Link>
+          </li>
           <li className="nav-item active">
             <Link to="/games" className="nav-link">
               games

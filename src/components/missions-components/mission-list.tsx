@@ -9,7 +9,7 @@ import ig from "../icons/ig.svg";
 import gift from "../icons/gift.svg";
 import UseScrollLoader from "../shared-components/scroll-loader";
 import { useLangContext } from "../shared-components/lang-context";
-import { Utilis } from "../shared-services/utilis";
+import { Utilis } from "../../shared-services/utilis";
 
 const missionType = {
   facebookMission: "FBPostMission",
