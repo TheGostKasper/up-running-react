@@ -1,16 +1,26 @@
 import axios from "axios";
 
-const url = "https://www.freetogame.com/api";
+const url = "http://localhost:9090/api";
 
+export interface IGamePayload {
+  page: number;
+  limit: number;
+  filters: Array<any>;
+}
+const defaultPayload: IGamePayload = {
+  limit: 10,
+  page: 1,
+  filters: [],
+};
 const GameService = {
-  getGames: () => {
-    return axios.get(`${url}/games`).then(({ data }) => {
+  getGames: (payload: IGamePayload = defaultPayload) => {
+    return axios.post(`${url}/games`, payload).then(({ data }: any) => {
       return data;
     });
   },
 
   getGameById: (id: string) => {
-    return axios.get(`${url}/game?id=${id}`).then(({ data }) => {
+    return axios.get(`${url}/game/${id}`).then(({ data: { data } }) => {
       return data;
     });
   },

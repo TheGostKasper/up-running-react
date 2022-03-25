@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
+import { IPayload } from "../components/shared-components/Pagination";
 
-import { IPayload } from "../components/shared-components/LoadingError";
 
 // https://randomuser.me/api/?page=5&results=2
 

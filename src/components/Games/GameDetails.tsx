@@ -11,8 +11,14 @@ const GameDetails = () => {
         <>
           <h4>{value.title}</h4>
           <div className="slides-container mandatory-scroll-snapping">
-            {value.screenshots.map((slide) => (
-              <img src={slide.image} alt={value.publisher} className="slide" />
+            {value.screenshots.map((slide, idx) => (
+              <img
+                src={slide.image}
+                alt={value.publisher}
+                className="slide"
+                key={idx}
+                loading="lazy"
+              />
             ))}
           </div>
           <div className="column my-4">

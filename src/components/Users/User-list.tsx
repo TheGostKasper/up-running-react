@@ -1,26 +1,38 @@
 import { useState } from "react";
 import UserService from "../../Services/User.service";
-import LoadingError, { IPayload } from "../shared-components/LoadingError";
+import LoadingError from "../shared-components/LoadingError";
+import Pagination, { IPayload } from "../shared-components/Pagination";
+import User from "./User";
 import { IUser } from "./User-modal";
-import Users from "./Users";
 
-const fetchUserApi = (payload: IPayload = { page: 1, limit: 10 }) => {
-  return () => UserService.getUsers(payload);
+const fetchUserApi = (payload: IPayload = { page: 1, limit: 25 }) => {
+  return UserService.getUsers(payload);
 };
 
 const UserList = () => {
   const [page, setPage] = useState(1);
 
-  const [fetchUser, setFetchuser] = useState(fetchUserApi);
-  const onPayloadChange = () => {
-    setPage(page + 1);
-    setFetchuser(() => fetchUserApi({ page: page + 1, limit: 10 }));
+  const [fetchUser, setFetchuser] = useState(() => fetchUserApi);
+  const onPayloadChange = (payload: IPayload) => {
+    setPage(payload.page);
+    setFetchuser(() => () => fetchUserApi(payload));
   };
 
   return (
     <LoadingError fetchFn={fetchUser}>
-      {(value: Array<IUser>) => (
-        <Users users={value} onPayloadChange={onPayloadChange} />
+      {({ value }: { value: Array<IUser> }) => (
+        <>
+          <Pagination
+            page={page}
+            limit={25}
+            onPaginationChange={onPayloadChange}
+          />
+          <div className="u-grid-5">
+            {value.map((user: IUser, indx: number) => (
+              <User user={user} key={indx} />
+            ))}
+          </div>
+        </>
       )}
     </LoadingError>
   );

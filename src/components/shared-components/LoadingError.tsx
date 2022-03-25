@@ -1,11 +1,6 @@
-import React, { createContext, useEffect, useRef, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { IoIosRefresh } from "react-icons/io";
 import Spinner from "react-bootstrap/Spinner";
-
-export interface IPayload {
-  page: number;
-  limit: number;
-}
 
 export const DataContext = createContext<any>(null);
 
@@ -19,25 +14,25 @@ const LoadingError: React.FC<any> = ({ children, fetchFn }: ILoadingError) => {
   const [error, setError] = useState(false);
   const [data, setData] = useState<any>();
 
-  const onFetch = useRef(() => {});
-  onFetch.current = () => {
-    setLoading((loading) => true);
-    setError((err) => false);
-
-    fetchFn()
+  const fetchLoad = (fn: Promise<any>) => {
+    setLoading((loading) => (loading = true));
+    setError((err) => (err = false));
+    return fn
       .then((res) => {
         setData(res);
       })
       .catch((err) => {
-        setError((err) => !err);
+        setError((err) => (err = !err));
       })
       .finally(() => {
-        setLoading((loading) => !loading);
+        setLoading((loading) => (loading = false));
       });
   };
 
   useEffect(() => {
-    onFetch.current();
+    setLoading((loading) => (loading = true));
+    setError((err) => (err = false));
+    fetchLoad(fetchFn());
   }, [fetchFn]);
 
   return (
@@ -49,10 +44,10 @@ const LoadingError: React.FC<any> = ({ children, fetchFn }: ILoadingError) => {
       )}
       {!loading && error && (
         <div>
-          <div className="alert alert-danger" role="alert">
+          <div className="alert alert-danger text-center" role="alert">
             Something Went Wrong, Retry
             <IoIosRefresh
-              onClick={onFetch.current}
+              onClick={() => fetchLoad(fetchFn())}
               className="ml-medium pointer"
             />
           </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import { IName, IUser } from "./User-modal";
 import { useNavigate } from "react-router-dom";
 interface IIuserProp {
@@ -13,19 +12,13 @@ const User = ({ user }: IIuserProp) => {
   const navigate = useNavigate();
   return (
     <div
-      className={`d-flex justify-content-start align-items-center user-container pointer ${
-        user.gender === "male" ? "g-reminder" : "r-reminder"
-      }`}
+      className="flex-column d-flex justify-content-start align-items-center border border-dark rounded p-2 pointer "
       onClick={() => navigate(`/users/${user.login.uuid}`)}
     >
-      <img
-        src={user.picture.thumbnail}
-        alt="User Thubnail"
-        className="avatar"
-      />
-      <div className="f-colm">
-        <h4 className="u-header">{displayName(user.name)}</h4>
-        <small className="u-caption">{user.email}</small>
+      <img src={user.picture.medium} alt="User Thubnail" className="avatar" />
+      <div className="f-col py-2 ">
+        <h4 className="u-header text-center">{displayName(user.name)}</h4>
+        <small className="u-caption text-center">{user.email}</small>
       </div>
     </div>
   );

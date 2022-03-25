@@ -1,5 +1,5 @@
 export interface IGame {
-  id: number;
+  Id: number;
   title: string;
   thumbnail: string;
   status: string;
@@ -40,7 +40,7 @@ export interface IGame {
 }
 
 export interface IGames {
-  id: number;
+  Id: number;
   title: string;
   thumbnail: string;
   short_description: string;
