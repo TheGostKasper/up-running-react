@@ -33,11 +33,6 @@ const LoadingError: React.FC<any> = ({
       {!loading && error && (
         <div className="alert alert-danger text-center w-100" role="alert">
           Something Went Wrong
-          {/* 
-            
-            Add reload button to the latest fetch
-
-            */}
         </div>
       )}
     </>

@@ -33,6 +33,10 @@ const LoadingError: React.FC<any> = ({ children, fetchFn }: ILoadingError) => {
     setLoading((loading) => (loading = true));
     setError((err) => (err = false));
     fetchLoad(fetchFn());
+
+    return () => {
+      setData(null)
+     }
   }, [fetchFn]);
 
   return (
