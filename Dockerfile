@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:alpine as buildStage
 WORKDIR /app
 COPY . .
 RUN yarn install && yarn build
@@ -6,5 +6,5 @@ RUN yarn install && yarn build
 FROM nginx:alpine
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
-COPY --from=build /app/build .
+COPY --from=buildStage /app/build .
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
