@@ -6,4 +6,5 @@
 # CMD ["npm ","start"];
 
 FROM nginx:stable-alpine
+RUN npm build
 COPY build/ /usr/share/nginx/html
