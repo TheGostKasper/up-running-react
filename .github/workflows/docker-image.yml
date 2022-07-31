@@ -22,7 +22,7 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build the Docker image
-      run:  docker build . --file Dockerfile --tag mubo9/up-running-react:${TAG}
+      run:  docker build . --file Dockerfile --tag mubo9/up-running-react:"dev_${TAG}"
    
     - name: Build & Push Docker Image
       uses: docker/build-push-action@v3
@@ -30,4 +30,4 @@ jobs:
         context: .
         push: true
         tags: |
-          mubo9/up-running-react:${TAG}  
+          mubo9/up-running-react:"dev_${TAG}"
