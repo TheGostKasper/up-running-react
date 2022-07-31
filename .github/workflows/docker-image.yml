@@ -16,13 +16,14 @@ jobs:
     - uses: actions/checkout@v3
     - name: env 
       run: TAG=$(date +%s); echo "TAG=${TAG}" >> $GITHUB_ENV
-    - name: Build the Docker image
-      run:  docker build . --file Dockerfile --tag mubo9/up-running-react:${TAG}
     - name: Login to DockerHub
       uses: docker/login-action@v1 
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build the Docker image
+      run:  docker build . --file Dockerfile --tag mubo9/up-running-react:${TAG}
+   
     - name: Build & Push Docker Image
       uses: docker/build-push-action@v3
       with:
