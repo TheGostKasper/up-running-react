@@ -10,4 +10,4 @@ RUN yarn install && yarn build
 # nginx state for serving content
 FROM nginx:alpine
 # Set working directory to nginx asset directory
-COPY build/ /usr/share/nginx/html
+COPY /app/build/ /usr/share/nginx/html
