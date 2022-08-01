@@ -24,7 +24,7 @@ jobs:
     - name: Build the Docker image
       run:  |
         echo tag = ${{env.TAG}}
-        docker build . --file Dockerfile --tag mubo9/up-running-react:${{env.TAG}}
+        docker build . --file Dockerfile --tag mubo9/up-running-react:dev_${{env.TAG}}
    
     - name: Build & Push Docker Image
       uses: docker/build-push-action@v3
@@ -32,4 +32,4 @@ jobs:
         context: .
         push: true
         tags: |
-          mubo9/up-running-react:${{env.TAG}} 
+          mubo9/up-running-react:dev_${{env.TAG}} 
