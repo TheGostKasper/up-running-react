@@ -22,7 +22,9 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build the Docker image
-      run:  docker build . --file Dockerfile --tag mubo9/up-running-react:${{TAG}}
+      run:  |
+        echo tag = ${env.TAG}
+        docker build . --file Dockerfile --tag mubo9/up-running-react:${env.TAG}
    
     - name: Build & Push Docker Image
       uses: docker/build-push-action@v3
