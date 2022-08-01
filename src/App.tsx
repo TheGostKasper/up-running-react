@@ -12,7 +12,7 @@ const routes = [
     path: "",
     element: (
       <main>
-        <p>Home page</p>
+        <p>Home page, Hello</p>
       </main>
     ),
   },
