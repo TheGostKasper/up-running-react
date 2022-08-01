@@ -8,7 +8,7 @@ const Header = ({ title }: IHeader) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light p-medium">
       <Link to="/" className="navbar-brand">
-        Basty
+        Demo PipeLine
       </Link>
       <button
         className="navbar-toggler"
