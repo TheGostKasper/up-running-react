@@ -32,4 +32,4 @@ jobs:
         context: .
         push: true
         tags: |
-          mubo9/up-running-react:${{TAG}}  
+          mubo9/up-running-react:${env.TAG} 
